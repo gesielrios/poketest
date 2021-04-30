@@ -4,5 +4,5 @@ from . import views as v
 app_name = 'core'
 
 urlpatterns = [
-    path('', v.get_pokemon, name='get_pokemon'),
+    path('<slug:slug>', v.get_pokemon, name='get_pokemon'),
 ]

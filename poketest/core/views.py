@@ -1,32 +1,44 @@
 import requests
 from django.http import JsonResponse
 
-def get_pokemon(request):
+def get_pokemon(request, slug):
 
     base_url =  'https://pokeapi.co/api/v2/pokemon/'
-    pokemon = request.GET.get('pokemon')
 
-    if pokemon:
-        url = base_url + pokemon
+    if slug:
+        url = base_url + slug.lower()
         result = requests.get(url)
         
         if result.status_code == 200:
-            abilities = result.json()['abilities']
-            abilities_result = []
+            all_abilities_json = result.json()['abilities']
+            
+            result_json = {}
+            for ability in all_abilities_json:
+                ability_name = ability['ability']['name']
+                ability_effect_description_url = ability['ability']['url']
 
-            for ability in abilities:
-                abilities_result.append(ability['ability']['name'])
+                ability_effect_result = requests.get(ability_effect_description_url)
 
-            abilities_result.sort()
+                if ability_effect_result.status_code == 200:
+                    effect_entries = ability_effect_result.json()['effect_entries']
 
+                    for effect_entry in effect_entries:
+                        if effect_entry['language']['name'] == 'en':
+                            result_json[ability_name] = effect_entry['effect']
+            
+            sorted_result_json = {}
+            
+            sorted_keys = list(result_json.keys())
+            sorted_keys.sort()
+            
+            for sorted_key in sorted_keys:
+                sorted_result_json[sorted_key] = result_json[sorted_key]
+            
             return JsonResponse(
-                {
-                    'pokemon': pokemon,
-                    'abilities': abilities_result
-                }
+                sorted_result_json
             )
             
-    return JsonResponse({'message': 'Pokemon not found.'})
+    return JsonResponse({'message': 'Pokemon not found or not specified.'})
 
 
 

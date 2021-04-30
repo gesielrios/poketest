@@ -5,7 +5,7 @@ app_name = 'core'
 
 urlpatterns = [
     path('', v.index, name='index'),
-    path('formulario', v.formulario, name='formulario'),
+    path('form_submit', v.form_submit, name='form_submit'),
     path('api/pokemon/<slug:slug>', v.get_pokemon, name='get_pokemon'),
     
 ]

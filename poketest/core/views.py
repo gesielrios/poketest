@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 import requests
 from django.http import JsonResponse
@@ -7,14 +8,17 @@ from django.http import JsonResponse
 def index(request):
     return render(request,'core/index.html')
 
-def formulario(request):
+def form_submit(request):
     if request.method == 'POST':
         pokemon = request.POST.get('pokemon')
         return redirect('api/pokemon/' + pokemon)
+    
+    messages.warning(request, "It is necessary to specify the pokemon to discover its abilities.")
+    return redirect('/')
 
 def get_pokemon(request, slug):
 
-    base_url =  'https://pokeapi.co/api/v2/pokemon/'
+    base_url = 'https://pokeapi.co/api/v2/pokemon/'
 
     if slug:
         url = base_url + slug.lower()

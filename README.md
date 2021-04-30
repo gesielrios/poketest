@@ -58,10 +58,11 @@ $ curl http://localhost:8000/api/pokemon/ditto
 {"imposter": "This Pok\u00e9mon transforms into a random opponent upon entering battle.  This effect is identical to the move transform.", "limber": "This Pok\u00e9mon cannot be paralyzed.\n\nIf a Pok\u00e9mon is paralyzed and acquires this ability, its paralysis is healed; this includes when regaining a lost ability upon leaving battle."}
 ```
 
-Accessing via browser. Just access via url http://localhost:8000 and in the form specify the pokemon, as shown below.
-<img src="/poketest/core/static/assets/images/app-1.png" alt="app-1" width="350"/><br><br>
-<img src="/poketest/core/static/assets/images/app-1.png" alt="app-2" width="350"/><br><br>
-<img src="/poketest/core/static/assets/images/app-1.png" alt="app-3" width="350"/><br><br>
+Accessing via browser. Just access via url http://localhost:8000 and in the form specify the pokemon, as shown below.<br><br>
+
+<img src="/poketest/core/static/assets/images/app-1.png" alt="app-1" width="400"/><br><br>
+<img src="/poketest/core/static/assets/images/app-1.png" alt="app-2" width="400"/><br><br>
+<img src="/poketest/core/static/assets/images/app-1.png" alt="app-3" width="400"/><br><br>
 
 ------------
 <h2>🔖 Proposed solution to the challenge</h2>

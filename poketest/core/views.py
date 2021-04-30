@@ -1,5 +1,16 @@
+# -*- coding: utf-8 -*-
+from django.shortcuts import render, redirect
+
 import requests
 from django.http import JsonResponse
+
+def index(request):
+    return render(request,'core/index.html')
+
+def formulario(request):
+    if request.method == 'POST':
+        pokemon = request.POST.get('pokemon')
+        return redirect('api/pokemon/' + pokemon)
 
 def get_pokemon(request, slug):
 

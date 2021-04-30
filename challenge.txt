@@ -1,0 +1,7 @@
+{
+  "imposter": "This Pokémon transforms into a random opponent upon entering battle.  This effect is identical to the move transform.",
+  "limber": "This Pokémon cannot be paralyzed.\n\nIf a Pokémon is paralyzed and acquires this ability, its paralysis is healed; this includes when regaining a lost ability upon leaving battle.",
+}
+
+Pegar a habilidade e o efeito da habilidade com base na URL da própria habilidade.
+Ordernar as chaves do dicionário por ordem alfabética

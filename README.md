@@ -61,8 +61,8 @@ $ curl http://localhost:8000/api/pokemon/ditto
 Accessing via browser. Just access via url http://localhost:8000 and in the form specify the pokemon, as shown below.<br><br>
 
 <img src="/poketest/core/static/assets/images/app-1.png" alt="app-1" width="400"/><br><br>
-<img src="/poketest/core/static/assets/images/app-1.png" alt="app-2" width="400"/><br><br>
-<img src="/poketest/core/static/assets/images/app-1.png" alt="app-3" width="400"/><br><br>
+<img src="/poketest/core/static/assets/images/app-2.png" alt="app-2" width="400"/><br><br>
+<img src="/poketest/core/static/assets/images/app-3.png" alt="app-3" width="400"/><br><br>
 
 ------------
 <h2>🔖 Proposed solution to the challenge</h2>

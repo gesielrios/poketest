@@ -31,3 +31,16 @@ class CoreViewTest(TestCase):
             json.dumps(response.json()), 
             self.failure_response_for_pokemon_ditto
         )
+    
+    def test_success_form_submit(self):
+        response = self.client.post('/form_submit', data={'pokemon': 'ditto'})
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response,
+            reverse('core:get_pokemon', kwargs={'slug': 'ditto'})
+        )
+    
+    def test_failure_form_submit(self):
+        response = self.client.get('/form_submit', data={'pokemon': 'ditto'})
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response,reverse('core:index'))
